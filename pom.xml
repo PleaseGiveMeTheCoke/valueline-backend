@@ -23,6 +23,8 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fast.json.version>1.2.15</fast.json.version>
+        <dubbo.version>2.7.8</dubbo.version>
+        <nacos.version>1.4.1</nacos.version>
     </properties>
 
     <dependencyManagement>
@@ -37,6 +39,24 @@
                 <groupId>com.valueline</groupId>
                 <artifactId>valueline-client</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-registry-nacos</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

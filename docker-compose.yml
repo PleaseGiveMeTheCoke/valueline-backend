@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # MySQL root 用户密码
+      MYSQL_DATABASE: nacos      # 创建名为 nacos 的数据库
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql        # 持久化 MySQL 数据
+    networks:
+      - nacos_network
+
+  nacos:
+    image: nacos/nacos-server:latest
+    container_name: nacos
+    environment:
+      MODE: standalone                  # 单机模式运行 Nacos
+      SPRING_DATASOURCE_PLATFORM: mysql  # 指定数据源为 MySQL
+      MYSQL_SERVICE_HOST: mysql          # MySQL 服务地址
+      MYSQL_SERVICE_DB_NAME: nacos       # Nacos 使用的数据库名称
+      MYSQL_SERVICE_PORT: 3306          # MySQL 服务端口
+      MYSQL_SERVICE_USER: root          # MySQL 用户名
+      MYSQL_SERVICE_PASSWORD: root  # MySQL 密码
+    ports:
+      - "8848:8848"                      # Nacos 控制台端口
+    depends_on:
+      - mysql                           # 依赖 MySQL 服务
+    networks:
+      - nacos_network
+
+volumes:
+  mysql_data:                            # MySQL 数据卷
+
+networks:
+  nacos_network:                         # 自定义网络

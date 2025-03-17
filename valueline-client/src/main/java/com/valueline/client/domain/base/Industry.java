@@ -1,9 +1,9 @@
-package com.valueline.client.base;
+package com.valueline.client.domain.base;
 
 import lombok.Data;
 
 @Data
-public class Hangye extends Stock {
+public class Industry extends Stock {
     /**
      * 一级行业
      */

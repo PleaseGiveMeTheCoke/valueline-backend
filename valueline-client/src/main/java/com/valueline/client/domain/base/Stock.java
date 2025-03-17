@@ -1,4 +1,4 @@
-package com.valueline.client.base;
+package com.valueline.client.domain.base;
 
 import lombok.Data;
 
