@@ -26,7 +26,9 @@ services:
       MYSQL_SERVICE_USER: root          # MySQL 用户名
       MYSQL_SERVICE_PASSWORD: root  # MySQL 密码
     ports:
-      - "8848:8848"                      # Nacos 控制台端口
+      - "8848:8848"
+      - "9848:9848"
+      - "9849:9849"  # Nacos 控制台端口
     depends_on:
       - mysql                           # 依赖 MySQL 服务
     networks:

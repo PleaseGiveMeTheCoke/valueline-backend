@@ -9,7 +9,7 @@ import org.apache.dubbo.config.annotation.DubboService;
 @DubboService
 public class BaseInfoGetServiceImpl implements BaseInfoGetService {
     @Override
-    public Result<Industry> getIndustryByCode(String code) {
+        public Result<Industry> getIndustryByCode(String code) {
         return Result.fail("no impl");
     }
 

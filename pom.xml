@@ -19,12 +19,11 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fast.json.version>1.2.15</fast.json.version>
-        <dubbo.version>2.7.8</dubbo.version>
-        <nacos.version>1.4.1</nacos.version>
+        <dubbo.version>3.3.1</dubbo.version>
     </properties>
 
     <dependencyManagement>
@@ -49,14 +48,14 @@
 
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-registry-nacos</artifactId>
+                <artifactId>dubbo-nacos-spring-boot-starter</artifactId>
                 <version>${dubbo.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>com.alibaba.nacos</groupId>
-                <artifactId>nacos-client</artifactId>
-                <version>${nacos.version}</version>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-registry-nacos</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
