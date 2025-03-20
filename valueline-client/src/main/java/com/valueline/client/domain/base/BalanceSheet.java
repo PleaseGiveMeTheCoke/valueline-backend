@@ -105,6 +105,12 @@ public class BalanceSheet {
     private Double nonCurrentAssets;
 
     /**
+     * 债权投资
+     */
+    @JSONField(name = "debt_investment")
+    private Double debtInvestment;
+
+    /**
      * 长期股权投资
      */
     @JSONField(name = "long_term_equity_investment")
@@ -354,7 +360,7 @@ public class BalanceSheet {
      * 所有者权益
      */
     @JSONField(name = "所有者权益")
-    private Double equity;
+    private Double ownerEquity;
 
     /**
      * 股本

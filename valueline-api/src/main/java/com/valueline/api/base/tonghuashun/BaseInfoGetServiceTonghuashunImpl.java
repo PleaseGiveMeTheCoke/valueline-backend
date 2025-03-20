@@ -8,9 +8,6 @@ import com.valueline.client.api.base.BaseInfoGetService;
 import com.valueline.client.domain.base.BalanceSheet;
 import com.valueline.client.domain.base.Industry;
 import com.valueline.client.domain.common.Result;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.remoting.http12.rest.Mapping;
 
@@ -47,9 +44,41 @@ public class BaseInfoGetServiceTonghuashunImpl implements BaseInfoGetService {
                 obj.put(categoryObj.getString("id"), listObj.getString("value") + listObj.getString("unit"));
             }
 
-            return obj.toJavaObject(AssetsReport.class);
+            for (String key : obj.keySet()) {
+                String moneyString = obj.getString(key);
+                obj.put(key, convertToDouble(moneyString));
+            }
+
+            return Result.success(obj.toJavaObject(BalanceSheet.class));
         } catch (Throwable e) {
-            e.printStackTrace();
-            return null;
-        }    }
+            return Result.fail("system error: " + e.getMessage());
+        }
+    }
+
+    private double convertToDouble(String input) {
+        if (input == null || input.isEmpty()) {
+            return 0.0;
+        }
+
+        // 去除空格
+        input = input.trim();
+
+        // 定义单位和对应的乘数
+        double multiplier = 1.0;
+        if (input.endsWith("亿")) {
+            multiplier = 100000000.0;
+            input = input.substring(0, input.length() - 1).trim();
+        } else if (input.endsWith("万")) {
+            multiplier = 10000.0;
+            input = input.substring(0, input.length() - 1).trim();
+        } else if (input.endsWith("元")) {
+            input = input.substring(0, input.length() - 1).trim();
+        }
+
+        // 将数字部分转换为double
+        double number = Double.parseDouble(input);
+
+        // 返回最终结果
+        return number * multiplier;
+    }
 }
