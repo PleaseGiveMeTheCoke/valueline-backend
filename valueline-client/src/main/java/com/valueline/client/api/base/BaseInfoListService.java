@@ -30,5 +30,5 @@ public interface BaseInfoListService {
      *
      * @return
      */
-    Result<List<DebtAssetRatio>> listDebtAssetRatio();
+    Result<List<DebtAssetRatio>> listDebtAssetRatio(String year, String season);
 }

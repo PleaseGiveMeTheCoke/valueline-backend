@@ -10,5 +10,5 @@ public class MarketValue extends Stock {
     /**
      * 股票当前市值，单位元
      */
-    private Double shizhi;
+    private Double marketValue;
 }
