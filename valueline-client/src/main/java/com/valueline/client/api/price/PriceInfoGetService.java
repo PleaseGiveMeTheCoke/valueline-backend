@@ -1,6 +1,9 @@
 package com.valueline.client.api.price;
 
 import com.valueline.client.domain.common.Result;
+import com.valueline.client.domain.price.LowestPoint;
+
+import java.util.List;
 
 /**
  * 获取股票价格相关信息
@@ -20,8 +23,8 @@ public interface PriceInfoGetService {
      * 获取最低点涨幅
      *
      * @param code  股票代码
-     * @param month 月，如3个月内，最低点的涨幅
+     * @param month 月，如3个月内，最低点的涨幅。批量, jsonArray
      * @return
      */
-    Result<Double> getLowestPointGrowthRate(String code, int month);
+    Result<List<LowestPoint>> getLowestPointGrowthRate(String code, String months);
 }

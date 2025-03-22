@@ -8,7 +8,12 @@ public class Constants {
     public static final String marketValueUrl = "http://n.biyingapi.com/himk/ltszph/041134850e16b10270";
     public static final String priceToBookRadioUrl = "http://n.biyingapi.com/himk/sjl/041134850e16b10270";
     /**
-     * 年/季，如2024，3
+     * %s%s: 年/季，如2024，3
      */
     public static final String debtAssetRatioUrl = "http://n.biyingapi.com/hicw/cznl/%s/%s/041134850e16b10270";
+
+    /**
+     * %s: 股票代码
+     */
+    public static final String monthKUrl = "http://api.biyingapi.com/zs/hfsjy/%s/mn/041134850e16b10270";
 }
