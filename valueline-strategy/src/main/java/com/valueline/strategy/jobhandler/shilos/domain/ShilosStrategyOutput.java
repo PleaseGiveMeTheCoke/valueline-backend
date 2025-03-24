@@ -1,8 +1,9 @@
 package com.valueline.strategy.jobhandler.shilos.domain;
 
+import com.valueline.client.domain.price.LowestPoint;
 import lombok.Data;
 
-import java.util.Map;
+import java.util.List;
 
 @Data
 public class ShilosStrategyOutput {
@@ -34,7 +35,7 @@ public class ShilosStrategyOutput {
     /**
      * 距最低点涨幅
      */
-    private Map<Integer, Double> maxIncrease;
+    private List<LowestPoint> maxIncrease;
 
     /**
      * 申万一级行业

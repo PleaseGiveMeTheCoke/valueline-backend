@@ -40,7 +40,7 @@ public class PriceInfoGetServiceBiyingImpl implements PriceInfoGetService {
                 }
 
                 Double cur = kArray.getJSONObject(size - 1).getDouble("c");
-                Double increase = ((cur - min) / min) * 100;
+                Double increase = ((cur - min) / min);
                 LowestPoint lowestPoint = new LowestPoint();
                 lowestPoint.setLowestPrice(min);
                 lowestPoint.setCurrentPrice(cur);

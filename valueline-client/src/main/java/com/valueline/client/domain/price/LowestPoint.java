@@ -17,7 +17,7 @@ public class LowestPoint implements Serializable {
     private Double currentPrice;
 
     /**
-     * 距最低点的涨幅，如50，代表50%
+     * 距最低点的涨幅，如0.5,代表 50%
      */
     private Double increase;
 
