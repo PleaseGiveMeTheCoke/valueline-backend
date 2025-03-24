@@ -2,11 +2,13 @@ package com.valueline.client.domain.base;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 股票
  */
 @Data
-public class Stock {
+public class Stock implements Serializable {
     /**
      * 股票代码
      */

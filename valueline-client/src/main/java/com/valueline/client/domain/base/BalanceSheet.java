@@ -3,11 +3,13 @@ package com.valueline.client.domain.base;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 资产负债表
  */
 @Data
-public class BalanceSheet {
+public class BalanceSheet implements Serializable {
     /**
      * 流动资产
      */

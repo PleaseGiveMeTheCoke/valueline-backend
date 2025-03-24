@@ -2,8 +2,10 @@ package com.valueline.client.domain.price;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class LowestPoint {
+public class LowestPoint implements Serializable {
     /**
      * 最低点价格
      */

@@ -2,8 +2,10 @@ package com.valueline.client.domain.base;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Industry extends Stock {
+public class Industry extends Stock implements Serializable {
     /**
      * 一级行业
      */

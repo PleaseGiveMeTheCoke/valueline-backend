@@ -32,7 +32,7 @@ public class BaseInfoListServiceBiyingImpl implements BaseInfoListService {
                 // 去除前缀
                 marketValue.setCode(marketValueDTO.getCode().substring(2));
                 marketValue.setName(marketValueDTO.getName());
-                marketValue.setMarketValue(marketValueDTO.getMarketCapitalization());
+                marketValue.setMarketValue(marketValueDTO.getMarketCapitalization() * 10000);
                 ret.add(marketValue);
             }
 

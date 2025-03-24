@@ -2,8 +2,10 @@ package com.valueline.client.domain.common;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Result<T> {
+public class Result<T> implements Serializable {
     private T data;
     private boolean success;
     private String message;

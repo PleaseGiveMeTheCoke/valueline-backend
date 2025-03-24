@@ -16,6 +16,7 @@
     <modules>
         <module>valueline-api</module>
         <module>valueline-client</module>
+        <module>valueline-strategy</module>
     </modules>
 
     <properties>
@@ -24,6 +25,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fast.json.version>1.2.15</fast.json.version>
         <dubbo.version>3.3.1</dubbo.version>
+        <xxl.job.version>3.0.0</xxl.job.version>
+        <nutz.version>1.r.65</nutz.version>
+        <mysql.connector.version>5.1.44</mysql.connector.version>
+        <druid.version>1.1.5</druid.version>
     </properties>
 
     <dependencyManagement>
@@ -62,6 +67,30 @@
                 <artifactId>dubbo-registry-nacos</artifactId>
                 <version>${dubbo.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl.job.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.nutz</groupId>
+                <artifactId>nutz</artifactId>
+                <version>${nutz.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.connector.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
