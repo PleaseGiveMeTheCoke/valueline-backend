@@ -65,7 +65,10 @@ public class BaseInfoGetServiceTonghuashunImpl implements BaseInfoGetService {
 
         // 定义单位和对应的乘数
         double multiplier = 1.0;
-        if (input.endsWith("亿")) {
+        if (input.endsWith("万亿")) {
+            multiplier = 1000000000000.0;
+            input = input.substring(0, input.length() - 2).trim();
+        } else if (input.endsWith("亿")) {
             multiplier = 100000000.0;
             input = input.substring(0, input.length() - 1).trim();
         } else if (input.endsWith("万")) {

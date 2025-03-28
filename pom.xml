@@ -26,7 +26,7 @@
         <fast.json.version>1.2.15</fast.json.version>
         <dubbo.version>3.3.1</dubbo.version>
         <xxl.job.version>3.0.0</xxl.job.version>
-        <nutz.version>1.r.65</nutz.version>
+        <nutz.version>1.r.72</nutz.version>
         <mysql.connector.version>5.1.44</mysql.connector.version>
         <druid.version>1.1.5</druid.version>
     </properties>

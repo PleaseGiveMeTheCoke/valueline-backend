@@ -15,4 +15,9 @@ public class Industry extends Stock implements Serializable {
      * 二级行业
      */
     private String secondClass;
+
+    /**
+     * 所属板块，zb，cyb，kcb
+     */
+    private String board;
 }

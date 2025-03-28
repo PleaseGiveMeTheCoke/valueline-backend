@@ -1,5 +1,6 @@
 package com.valueline.api.base.biying;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.valueline.api.base.Constants;
 import com.valueline.api.util.OkHttpUtil;
@@ -11,7 +12,6 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.remoting.http12.rest.Mapping;
 
 /**
- *
  * 必盈实现类
  */
 @Mapping(value = "com.valueline.client.api.base.BaseInfoGetService.biying")
@@ -20,6 +20,7 @@ public class BaseInfoGetServiceBiyingImpl implements BaseInfoGetService {
 
     /**
      * http://localhost:20880/com.valueline.client.api.base.BaseInfoGetService.biying/getIndustryByCode?code=000419
+     *
      * @param code
      * @return
      */
@@ -32,6 +33,15 @@ public class BaseInfoGetServiceBiyingImpl implements BaseInfoGetService {
             Industry ret = new Industry();
             ret.setFirstClass(responseArray.getJSONObject(0).getString("name"));
             ret.setSecondClass(responseArray.getJSONObject(1).getString("name"));
+            String jsonString = JSON.toJSONString(responseArray);
+            if (jsonString.contains("创业板")) {
+                ret.setBoard("cyb");
+            } else if (jsonString.contains("科创板")) {
+                ret.setBoard("kcb");
+            } else {
+                // 主板
+                ret.setBoard("zb");
+            }
             return Result.success(ret);
         } catch (Throwable e) {
             // TODO log

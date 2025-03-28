@@ -1,4 +1,4 @@
-package com.valueline.api.base.tonghuashun;
+package com.valueline.api.base.biying;
 
 
 import com.alibaba.fastjson.JSONArray;
@@ -27,7 +27,7 @@ public class PriceInfoGetServiceBiyingImpl implements PriceInfoGetService {
     public Result<List<LowestPoint>> getLowestPointGrowthRate(String code, String months) {
         try {
             String host = String.format(Constants.monthKUrl, code);
-            String responseString = OkHttpUtil.getRequest(host, 3);
+            String responseString = OkHttpUtil.getRequest(host, 5);
             JSONArray kArray = JSONArray.parseArray(responseString);
             int size = kArray.size();
             List<LowestPoint> ret = new ArrayList<>();
