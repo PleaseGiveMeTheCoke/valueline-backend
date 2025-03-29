@@ -17,6 +17,7 @@
         <module>valueline-api</module>
         <module>valueline-client</module>
         <module>valueline-strategy</module>
+        <module>valueline-web</module>
     </modules>
 
     <properties>

@@ -1,36 +1,38 @@
-package com.valueline.strategy.dao.domain;
+package com.valueline.client.dao.domain;
 
 import lombok.Data;
 import org.nutz.dao.entity.annotation.ColDefine;
 import org.nutz.dao.entity.annotation.ColType;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
-import org.nutz.dao.entity.annotation.Index;
-import org.nutz.dao.entity.annotation.Name;
 import org.nutz.dao.entity.annotation.Table;
 
 import java.util.Date;
 
 @Data
-@Table("strategy_run_result")
-public class StrategyRunResult {
+@Table("strategy")
+public class Strategy {
     @Id
     private Long id;
 
     @Column(hump = true)
-    @Index(unique = false, fields = {})
-    private Long strategyId;
+    private String strategyType;
 
     @Column(hump = true)
     private Long xxlJobId;
 
     @Column(hump = true)
-    @Index(unique = false, fields = {})
-    private String code;
+    private String name;
 
     @Column(hump = true)
     @ColDefine(type = ColType.TEXT)
-    private String output;
+    private String strategyParam;
+
+    @Column(hump = true)
+    private String cron;
+
+    @Column(hump = true)
+    private String status;
 
     @Column(hump = true)
     private Date gmtCreate;

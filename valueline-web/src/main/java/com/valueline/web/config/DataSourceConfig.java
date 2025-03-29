@@ -1,4 +1,4 @@
-package com.valueline.strategy.config;
+package com.valueline.web.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.valueline.client.dao.domain.Strategy;

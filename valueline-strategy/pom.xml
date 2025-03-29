@@ -47,7 +47,6 @@
             <groupId>com.valueline</groupId>
             <artifactId>valueline-client</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.nutz</groupId>
             <artifactId>nutz</artifactId>
@@ -56,7 +55,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>

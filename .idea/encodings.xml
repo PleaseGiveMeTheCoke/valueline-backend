@@ -7,5 +7,6 @@
     <file url="file://$PROJECT_DIR$/valueline-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/valueline-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/valueline-strategy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/valueline-web/src/main/java" charset="UTF-8" />
   </component>
 </project>
