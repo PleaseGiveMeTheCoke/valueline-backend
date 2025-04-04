@@ -25,4 +25,9 @@ public class LowestPoint implements Serializable {
      * 代表month月内的涨幅
      */
     private int month;
+
+    /**
+     * 最低点日期 (格式: yyyyMMdd)
+     */
+    private String lowestDate;
 }

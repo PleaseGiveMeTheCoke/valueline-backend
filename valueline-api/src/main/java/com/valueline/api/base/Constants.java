@@ -16,4 +16,10 @@ public class Constants {
      * %s: 股票代码
      */
     public static final String monthKUrl = "http://api.biyingapi.com/zs/hfsjy/%s/mn/041134850e16b10270";
+
+
+    public static final String industryUrlThs = "https://basic.10jqka.com.cn/basicapi/company_info/merge_info/v1/base_info/?code=%s&locale=zh_CN&type=stock";
+    public static final String boardUrlThs = "https://dict.hexin.cn:9531/stocks?pattern=%s&isauto=1&associate=1&pl=i&isrealcode=1";
+    public static final String priceUrlThs = "https://basic.10jqka.com.cn/basicapi/finance/valuation/v1/trend/?code=%s&id=stock_pb&locale=zh_CN&period=3&type=stock";
+
 }

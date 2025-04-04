@@ -1,6 +1,5 @@
 package com.valueline.api.util;
 
-import com.alibaba.fastjson.JSONObject;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -40,7 +39,7 @@ public class OkHttpUtil {
                 exception = e;
                 // 重试之前可以等待一段时间
                 try {
-                    Thread.sleep(1000); // 等待1秒后重试
+                    Thread.sleep(5000); // 等待5秒后重试
                 } catch (InterruptedException ignored) {
                     Thread.currentThread().interrupt();
                 }

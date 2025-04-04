@@ -20,7 +20,28 @@ public class BaseInfoGetServiceTonghuashunImpl implements BaseInfoGetService {
 
     @Override
     public Result<Industry> getIndustryByCode(String code) {
-        return Result.fail("no impl");
+        try {
+            String url = String.format(Constants.industryUrlThs, code);
+            String responseString = OkHttpUtil.getRequest(url, 5);
+            JSONObject responseObj = JSONArray.parseObject(responseString);
+            Industry ret = new Industry();
+            ret.setFirstClass(responseObj.getJSONObject("data").getJSONObject("industry").getString("hy2"));
+            ret.setSecondClass(responseObj.getJSONObject("data").getJSONObject("industry").getString("hy3"));
+            url = String.format(Constants.boardUrlThs, code);
+            responseString = OkHttpUtil.getRequest(url, 5);
+            if (responseString.contains("科创")) {
+                ret.setBoard("kcb");
+            } else if (responseString.contains("创")) {
+                ret.setBoard("cyb");
+            } else {
+                // 主板
+                ret.setBoard("zb");
+            }
+            return Result.success(ret);
+        } catch (Throwable e) {
+            // TODO log
+            return Result.fail("system error: " + e.getMessage());
+        }
     }
 
     @Override

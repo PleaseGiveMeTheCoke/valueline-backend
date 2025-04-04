@@ -74,7 +74,7 @@ public class BaseInfoListServiceBiyingImpl implements BaseInfoListService {
                 DebtAssetRatio debtAssetRatio = new DebtAssetRatio();
                 debtAssetRatio.setCode(debtAssetRatioDTO.getCode());
                 debtAssetRatio.setName(debtAssetRatioDTO.getName());
-                debtAssetRatio.setDebtAssetRatio(debtAssetRatioDTO.getZichanFuzhaiLv());
+                debtAssetRatio.setDebtAssetRatio(debtAssetRatioDTO.getZichanFuzhaiLv() / 100.0);
                 ret.add(debtAssetRatio);
             }
 

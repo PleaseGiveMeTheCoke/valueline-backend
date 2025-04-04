@@ -5,13 +5,13 @@ import org.springframework.boot.SpringApplication;
 
 @org.springframework.boot.autoconfigure.SpringBootApplication
 @EnableDubbo
-public class SpringBootApplication {
+public class ValueStrategyApplicaton {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApplication.class);
+        SpringApplication.run(ValueStrategyApplicaton.class);
         new Thread(() -> {
-            synchronized (SpringBootApplication.class) {
+            synchronized (ValueStrategyApplicaton.class) {
                 try {
-                    SpringBootApplication.class.wait();
+                    ValueStrategyApplicaton.class.wait();
                 } catch (Throwable e) {
 
                 }

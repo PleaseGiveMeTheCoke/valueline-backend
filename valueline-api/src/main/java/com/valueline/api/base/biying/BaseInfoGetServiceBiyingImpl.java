@@ -28,7 +28,7 @@ public class BaseInfoGetServiceBiyingImpl implements BaseInfoGetService {
     public Result<Industry> getIndustryByCode(String code) {
         try {
             String url = Constants.industryUrl + code + Constants.split + Constants.token;
-            String responseString = OkHttpUtil.getRequest(url, 3);
+            String responseString = OkHttpUtil.getRequest(url, 5);
             JSONArray responseArray = JSONArray.parseArray(responseString);
             Industry ret = new Industry();
             ret.setFirstClass(responseArray.getJSONObject(0).getString("name"));

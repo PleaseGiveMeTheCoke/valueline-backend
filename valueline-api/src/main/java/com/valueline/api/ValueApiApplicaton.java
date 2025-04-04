@@ -5,8 +5,8 @@ import org.springframework.boot.SpringApplication;
 
 @org.springframework.boot.autoconfigure.SpringBootApplication
 @EnableDubbo
-public class SpringBootApplication {
+public class ValueApiApplicaton {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApplication.class, args);
+        SpringApplication.run(ValueApiApplicaton.class, args);
     }
 }
