@@ -22,4 +22,8 @@ public class Constants {
     public static final String boardUrlThs = "https://dict.hexin.cn:9531/stocks?pattern=%s&isauto=1&associate=1&pl=i&isrealcode=1";
     public static final String priceUrlThs = "https://basic.10jqka.com.cn/basicapi/finance/valuation/v1/trend/?code=%s&id=stock_pb&locale=zh_CN&period=3&type=stock";
 
+    /**
+     * 问财股票筛选
+     */
+    public static final String wencaiSearchUrl = "https://www.iwencai.com/gateway/urp/v7/landing/getDataList";
 }

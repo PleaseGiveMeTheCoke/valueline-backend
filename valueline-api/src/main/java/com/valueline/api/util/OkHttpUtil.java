@@ -1,10 +1,13 @@
 package com.valueline.api.util;
 
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
@@ -50,6 +53,33 @@ public class OkHttpUtil {
             throw exception;
         } else {
             throw new IOException("Request failed after " + retryTimes + " retries");
+        }
+    }
+
+    /**
+     * 发送GET请求并返回JSONObject
+     *
+     * @param url 请求的URL
+     * @return JSONObject
+     * @throws IOException 如果请求失败
+     */
+    public static String postFormRequest(String url, Map<String, String> formBody) throws IOException {
+        // Create form-data body
+        FormBody.Builder builder = new FormBody.Builder();
+        for (String key : formBody.keySet()) {
+            builder.add(key, formBody.get(key));
+        }
+        RequestBody requestBody = builder.build();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+                .build();
+        Response response = okHttpClient.newCall(request).execute();
+        if (response.isSuccessful() && response.body() != null) {
+            return Objects.requireNonNull(response.body()).string();
+        } else {
+            throw new IOException("Request failed: " + response);
         }
     }
 }
