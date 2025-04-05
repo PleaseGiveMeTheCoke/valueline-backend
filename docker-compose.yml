@@ -47,6 +47,40 @@ services:
     networks:
       - nacos_network
 
+  valueline-api:
+    image: valueline-api:latest  # 使用你构建的镜像
+    container_name: valueline-api
+    ports:
+      - "8082:8082"  # 暴露API端口
+    depends_on:
+      - mysql
+      - nacos  # 如果依赖nacos
+    networks:
+      - nacos_network
+
+  valueline-strategy:
+      image: valueline-strategy:latest
+      container_name: valueline-strategy
+      environment:
+        # 日志配置
+        LOG_PATH: "/app/logs"
+      ports:
+        - "9997:9998"  # XXL-JOB执行器端口
+        - "20882:20881"  # Dubbo端口
+      volumes:
+        # 挂载日志目录（确保宿主机目录存在）
+        - ./logs/valueline-strategy:/app/logs
+        # 单独挂载XXL-JOB日志
+        - ./logs/xxl-job:/app/logs/xxl-job
+      networks:
+        - nacos_network
+  valueline-web:
+    image: valueline-web:latest  # 使用你构建的镜像
+    container_name: valueline-web
+    ports:
+      - "8081:8081"  # 暴露API端口
+    networks:
+      - nacos_network
 volumes:
   mysql_data:                            # MySQL 数据卷
 
