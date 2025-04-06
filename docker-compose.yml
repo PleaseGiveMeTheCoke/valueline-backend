@@ -57,6 +57,7 @@ services:
       - nacos  # 如果依赖nacos
     networks:
       - nacos_network
+    restart: on-failure:3  # 最多重试3次
 
   valueline-strategy:
       image: valueline-strategy:latest
@@ -74,11 +75,21 @@ services:
         - ./logs/xxl-job:/app/logs/xxl-job
       networks:
         - nacos_network
+      restart: on-failure:3  # 最多重试3次
+
   valueline-web:
     image: valueline-web:latest  # 使用你构建的镜像
     container_name: valueline-web
     ports:
       - "8081:8081"  # 暴露API端口
+    networks:
+      - nacos_network
+
+  valueline-frontend:
+    image: valueline-frontend:lates  # 使用你构建的镜像
+    container_name: valueline-frontend
+    ports:
+      - "3000:3000"  # 暴露API端口
     networks:
       - nacos_network
 volumes:
