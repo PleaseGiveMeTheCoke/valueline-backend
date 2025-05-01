@@ -14,4 +14,4 @@ EXPOSE 8081
 ENV JAVA_OPTS="-Xmx512m -Xms256m"
 
 # 启动命令
-ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app/valueline-web-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:6666 -jar /app/valueline-web-1.0-SNAPSHOT.jar"]
