@@ -14,9 +14,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>valueline-api</module>
-        <module>valueline-client</module>
-        <module>valueline-strategy</module>
         <module>valueline-web</module>
     </modules>
 
