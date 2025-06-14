@@ -1,8 +1,8 @@
 package com.valueline.backend.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.valueline.backend.client.domain.strategy.Strategy;
-import com.valueline.backend.client.domain.strategy.StrategyRunResult;
+import com.valueline.backend.domain.strategy.Strategy;
+import com.valueline.backend.domain.strategy.StrategyRunResult;
 import org.nutz.dao.Dao;
 import org.nutz.dao.impl.NutDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,6 @@ public class DataSourceConfig {
     @Bean
     public Dao nutDao(@Autowired DruidDataSource druidDataSource) {
         Dao dao = new NutDao(druidDataSource);
-        dao.create(Strategy.class, false);
-        dao.create(StrategyRunResult.class, false);
-
         return dao;
     }
 }

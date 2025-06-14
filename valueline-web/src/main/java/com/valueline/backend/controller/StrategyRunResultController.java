@@ -1,7 +1,7 @@
 package com.valueline.backend.controller;
 
-import com.valueline.backend.client.domain.strategy.StrategyRunResult;
-import com.valueline.backend.client.domain.common.Result;
+import com.valueline.backend.domain.strategy.StrategyRunResult;
+import com.valueline.backend.domain.common.Result;
 import jakarta.annotation.Resource;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Condition;
